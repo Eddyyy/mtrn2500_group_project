@@ -33,40 +33,40 @@ void RectangularPrism::draw() {
     glTranslatef(x, y, z);
     glRotatef(rotation);
 
-    //front side
+    //front face
     glPushMatrix();
 	glTranslatef(0, 0, -z_length/2);
 	drawRectangle(x_length, y_length);
     glPopMatrix();
 
-    //Opposite side
+    //Opposite face
 	glPushMatrix();
 	glTranslatef(0, 0, z_length/2);
 	drawRectangle(x_length, y_length);
 	glPopMatrix();
 
-    //right side
+    //right face
 	glPushMatrix();
 	glTranslatef(x_length/2, 0, 0);
 	glRotatef(90, 0, 1, 0);
 	drawRectangle(z_length, y_length);
 	glPopMatrix();
 
-    //left side
+    //left face
 	glPushMatrix();
 	glTranslatef(-x_length/2, 0, 0);
 	glRotatef(90, 0, 1, 0);
 	drawRectangle(z_length, y_length);
 	glPopMatrix();
 
-    //top side
+    //top face
 	glPushMatrix();
 	glTranslatef(0, y_length, -z_length/2);
 	glRotatef(90, 1, 0, 0);
 	drawRectangle(x_length, z_length);
 	glPopMatrix();
 
-    //bottom side
+    //bottom face
 	glPushMatrix();
 	glTranslatef(0, 0, -z_length/2);
 	glRotatef(90, 1, 0, 0);
