@@ -19,6 +19,7 @@ private:
 	double x_length;
 	double y_length;
 	double z_length;
+    void drawRectangle(double x_length, y_length);
 }
 
 #endif

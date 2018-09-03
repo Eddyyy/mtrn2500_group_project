@@ -29,11 +29,60 @@ RectangularPrism::RectangularPrism(double x_, double y_, double z_, double rotat
 }
 
 void RectangularPrism::draw() {
-    //TODO
+    glPushMatrix();
+    glTranslatef(x, y, z);
+    glRotatef(rotation);
+
+    //front side
+    glPushMatrix();
+	glTranslatef(0, 0, -z_length/2);
+	drawRectangle(x_length, y_length);
+    glPopMatrix();
+
+    //Opposite side
+	glPushMatrix();
+	glTranslatef(0, 0, z_length/2);
+	drawRectangle(x_length, y_length);
+	glPopMatrix();
+
+    //right side
+	glPushMatrix();
+	glTranslatef(x_length/2, 0, 0);
+	glRotatef(90, 0, 1, 0);
+	drawRectangle(z_length, y_length);
+	glPopMatrix();
+
+    //left side
+	glPushMatrix();
+	glTranslatef(-x_length/2, 0, 0);
+	glRotatef(90, 0, 1, 0);
+	drawRectangle(z_length, y_length);
+	glPopMatrix();
+
+    //top side
+	glPushMatrix();
+	glTranslatef(0, y_length, -z_length/2);
+	glRotatef(90, 1, 0, 0);
+	drawRectangle(x_length, z_length);
+	glPopMatrix();
+
+    //bottom side
+	glPushMatrix();
+	glTranslatef(0, 0, -z_length/2);
+	glRotatef(90, 1, 0, 0);
+	drawRectangle(x_length, z_length);
+	glPopMatrix();
+
+    glPopMatrix(); 
 }
 
-double RectangularPrism::getX_length() {
-	return x_length;
+void drawRectangle(double x_length, double y_length) {
+	glBegin(GL_QUADS);
+	glVertex3f(-x_length/2, 0, 0);
+	glVertex3f(-x_length/2, y_length, 0);
+	glVertex3f(x_length/2, y_length, 0);
+	glVertex3f(x_length/2, 0, 0);
+	glEnd();
 }
 
 double RectangularPrism::getY_length() {
