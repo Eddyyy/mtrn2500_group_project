@@ -17,30 +17,32 @@
 #endif
 
 Cylinder::Cylinder(double x_, double y_, double z_, double radius_, double depth_) : Shape(x_, y_, z_) {
-
+    radius = radius_;
+    depth = depth_;
 }
 
 Cylinder::Cylinder(double x_, double y_, double z_, double rotation_, double radius_, double depth_) : Shape(x_, y_, z_, rotation_) {
-
+    radius = radius_;
+    depth = depth_;
 }
 
 void Cylinder::draw() {
-
+    //TODO
 }
 
 double Cylinder::get_radius() {
-	return 0.0;
+	return radius;
 }
 
 double Cylinder::get_depth() {
-	return 0.0;
+	return depth;
 }
 
 void Cylinder::set_radius(double radius_) {
-
+    radius = radius_;
 }
 
 void Cylinder::set_depth(double depth_) {
-
+    depth = depth_;
 }
 

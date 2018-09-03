@@ -160,7 +160,8 @@ void drawSquare() {
 	glVertex3f(2.5, 0, 0);
 	glEnd();
 }
-void testDraw() {
+
+void testDrawCube() {
 	drawSquare();
 	glPushMatrix();
 	glTranslatef(0, 0, 5);
@@ -243,7 +244,7 @@ void display() {
 
 	// draw HUD
 	HUD::Draw();
-	testDraw();
+	testDrawCube();
 	glutSwapBuffers();
 };
 
