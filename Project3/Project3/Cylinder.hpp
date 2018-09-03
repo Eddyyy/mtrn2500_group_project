@@ -5,6 +5,7 @@ class Cylinder : public Shape {
 public:
 	Cylinder(double x_, double y_, double z_, double radius_, double depth_);
 	Cylinder(double x_, double y_, double z_, double rotation_, double radius_, double depth_);
+    ~Cylinder();
 
 	void draw();
 
@@ -17,6 +18,7 @@ public:
 private:
 	double radius;
 	double depth;
+    GLUquadric* gluQuadric;
 }
 
 #endif

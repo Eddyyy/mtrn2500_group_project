@@ -19,15 +19,35 @@
 Cylinder::Cylinder(double x_, double y_, double z_, double radius_, double depth_) : Shape(x_, y_, z_) {
     radius = radius_;
     depth = depth_;
+    qluQuadric = gluNewQuadric();
 }
 
 Cylinder::Cylinder(double x_, double y_, double z_, double rotation_, double radius_, double depth_) : Shape(x_, y_, z_, rotation_) {
     radius = radius_;
     depth = depth_;
+    gluQuadric = gluNewQuadric();
+}
+
+Cylinder::~Cylinder() : ~Shape() {
+    gluDeleteQuadric(gluQuadric);
 }
 
 void Cylinder::draw() {
-    //TODO
+    glPushMatrix();
+    glTranslatef(x, y, z);
+    glRotatef(rotation);
+
+    //Cylinder body
+    glPushMatrix();
+    glTranslatef(0, radius, -depth/2);
+    glBegin(GL_QUADS);
+    gluCylinder(gluQuadric, radius, radius, depth, GLint a(10), GLint b(10));
+    glEnd();
+    glPopMatrix();
+
+
+
+    glPopMatrix();
 }
 
 double Cylinder::get_radius() {
