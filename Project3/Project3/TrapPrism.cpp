@@ -34,7 +34,7 @@ TrapPrism::TrapPrism(double x_, double y_, double z_, double rotation_, float a_
 }
 
 void TrapPrism::Trap() {
-	glColor3f(1, 0, 0);
+	//glColor3f(1, 0, 0);
 	glBegin(GL_POLYGON);
 	glVertex3f(a_length/2, 0, -depth/2);
 	glVertex3f(a_length/2 - a_offset, height, -depth/2);
@@ -43,7 +43,7 @@ void TrapPrism::Trap() {
 	glEnd();
 }
 void TrapPrism::Trap1() {
-	glColor3f(0, 1, 0);
+	//glColor3f(0, 1, 0);
 	glBegin(GL_POLYGON);
 	glVertex3f(a_length/2, 0, -depth/2);
 	glVertex3f(-a_length/2, 0, -depth/2);
@@ -52,7 +52,7 @@ void TrapPrism::Trap1() {
 	glEnd();
 }
 void TrapPrism::Trap2() {
-	glColor3f(0, 0, 1);
+	//glColor3f(0, 0, 1);
 	glBegin(GL_POLYGON);
 	glVertex3f(a_length/2 - a_offset, height, -depth/2);
 	glVertex3f(a_length/2 - a_offset - b_length, height, -depth/2);
@@ -61,7 +61,7 @@ void TrapPrism::Trap2() {
 	glEnd();
 }
 void TrapPrism::Trap3() {
-	glColor3f(1, 1, 0);
+	//glColor3f(1, 1, 0);
 	glBegin(GL_POLYGON);
 	glVertex3f(a_length/2, 0, -depth/2);
 	glVertex3f(a_length/2 - a_offset, height, -depth/2);
@@ -70,7 +70,7 @@ void TrapPrism::Trap3() {
 	glEnd();
 }
 void TrapPrism::Trap4() {
-	glColor3f(0, 1, 1);
+	//glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);
 	glVertex3f(-a_length/2, 0, -depth/2);
 	glVertex3f(a_length/2 - a_offset - b_length, height, -depth/2);
@@ -80,8 +80,8 @@ void TrapPrism::Trap4() {
 }
 void TrapPrism::draw() {
 	glPushMatrix();
-	glTranslated(x, y, z);
-	glRotated(rotation, 0, 1, 0);
+	positionInGL();
+	setColorInGL();
 
 	Trap();
 	glPushMatrix();

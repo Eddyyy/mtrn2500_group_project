@@ -13,7 +13,7 @@ private:
 
 public:
 	RectPrism();
-	RectPrism(double x_, double y_, double z_, double x_length_, float y_length_, float z_length_);
+	RectPrism(double x_, double y_, double z_, float x_length_, float y_length_, float z_length_);
 	RectPrism(double x_, double y_, double z_, double rotation_, float x_length_, float y_length_, float z_length_);
 	~RectPrism() = default;
 	void Rect1();

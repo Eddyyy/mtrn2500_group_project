@@ -34,6 +34,10 @@
 #include "Shape.hpp"
 #include "Vehicle.hpp"
 #include "RectPrism.hpp"
+#include "TriPrism.hpp"
+#include "TrapPrism.hpp"
+#include "Cylinder.hpp"
+#include "MyVehicle.hpp"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
@@ -422,8 +426,24 @@ void display() {
 	HUD::Draw();
 
 	//testing drawing shapes
-	RectPrism * testRectPrism = new RectPrism();
+	RectPrism * testRectPrism = new RectPrism(20, 0, 20, 10, 10, 20);
+	testRectPrism->setColor(0, 1, 0);
 	testRectPrism->draw();
+
+	TriPrism * testTriPrism = new TriPrism(-20, 0, 20, 10, 10, 90, 15);
+	testTriPrism->setColor(1, 0, 0);
+	testTriPrism->draw();
+
+	TrapPrism * testTrapPrism = new TrapPrism(-20, 0, -20, 10, 10, 10, 10, 5);
+	testTrapPrism->setColor(0, 0, 1);
+	testTrapPrism->draw();
+
+	Cylinder * testCylinder = new Cylinder(20, 0, -20, 5, 10);
+	testCylinder->setColor(1, 1, 0);
+	testCylinder->draw();
+
+	MyVehicle * testVehicle = new MyVehicle();
+	testVehicle->draw();
 	//testDraw();
 
 	glutSwapBuffers();

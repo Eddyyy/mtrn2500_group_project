@@ -1,5 +1,4 @@
 #include "Cylinder.hpp"
-#include "Shape.hpp"
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -35,17 +34,38 @@ Cylinder::Cylinder(double x_, double y_, double z_, double rotation_, double rad
 
 void Cylinder::draw() {
     glPushMatrix();
-    glTranslated(x, y, z);
-    glRotated(rotation, 0, 1, 0);
+	positionInGL();
+	setColorInGL();
 
     //Cylinder body
     glPushMatrix();
     glTranslatef(0, radius, -depth/2);
 	GLUquadric * quadric = gluNewQuadric();
-    gluCylinder(quadric, radius, radius, depth, 1, 10);
+	gluQuadricDrawStyle(quadric, GLU_FILL);
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+    gluCylinder(quadric, radius, radius, depth, 50, 10);
 	gluDeleteQuadric(quadric);
     glPopMatrix();
 
+	//Cylinder face
+	glPushMatrix();
+	glTranslatef(0, radius, -depth/2);
+	quadric = gluNewQuadric();
+	gluQuadricDrawStyle(quadric, GLU_FILL);
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+	gluDisk(quadric, 0, radius, 50, 10);
+	gluDeleteQuadric(quadric);
+	glPopMatrix();
+
+	//Cylinder face
+	glPushMatrix();
+	glTranslatef(0, radius, depth/2);
+	quadric = gluNewQuadric();
+	gluQuadricDrawStyle(quadric, GLU_FILL);
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+	gluDisk(quadric, 0, radius, 50, 10);
+	gluDeleteQuadric(quadric);
+	glPopMatrix();
 
     glPopMatrix();
 }

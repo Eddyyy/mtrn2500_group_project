@@ -28,7 +28,7 @@ RectPrism::RectPrism() : Shape() {
 	z_length = 1.0;
 }
 
-RectPrism::RectPrism(double x_, double y_, double z_, double x_length_, float y_length_, float z_length_) : Shape(x_, y_, z_) {
+RectPrism::RectPrism(double x_, double y_, double z_, float x_length_, float y_length_, float z_length_) : Shape(x_, y_, z_) {
 	x_length = x_length_;
 	y_length = y_length_;
 	z_length = z_length_;
@@ -43,7 +43,7 @@ RectPrism::RectPrism(double x_, double y_, double z_, double rotation_, float x_
 //RectPrism::~RectPrism() {}
 
 void RectPrism::Rect1() {
-	glColor3f(1, 0, 0);
+	//glColor3f(1, 0, 0);
 	glBegin(GL_QUADS);
 	glVertex3f(-x_length/2, 0, -z_length/2);
 	glVertex3f(-x_length/2, y_length, -z_length/2);
@@ -52,7 +52,7 @@ void RectPrism::Rect1() {
 	glEnd();
 }
 void RectPrism::Rect2() {
-	glColor3f(0, 1, 0);
+	//glColor3f(0, 1, 0);
 	glBegin(GL_QUADS);
 	glVertex3f(-x_length/2, 0, -z_length/2);
 	glVertex3f(-x_length/2, y_length, -z_length/2);
@@ -61,7 +61,7 @@ void RectPrism::Rect2() {
 	glEnd();
 }
 void RectPrism::Rect3() {
-	glColor3f(0, 0, 1);
+	//glColor3f(0, 0, 1);
 	glBegin(GL_QUADS);
 	glVertex3f(-x_length/2, 0, -z_length/2);
 	glVertex3f(-x_length/2, 0, z_length/2);
@@ -72,8 +72,8 @@ void RectPrism::Rect3() {
 
 void RectPrism::draw() {
 	glPushMatrix();
-	glTranslated(x, y, z);
-	glRotated(rotation, 0, 1, 0);
+	positionInGL();
+	setColorInGL();
 
 	//Front and back
 	RectPrism::Rect1();

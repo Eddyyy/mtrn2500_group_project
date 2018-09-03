@@ -52,7 +52,7 @@ void TriPrism::Tri() {
 	glEnd();
 }
 void TriPrism::Tri1() {
-	glColor3f(1, 0, 0);
+	//glColor3f(1, 0, 0);
 	glBegin(GL_POLYGON);
 	glVertex3f(b_length/2, 0, -depth/2);
 	glVertex3f(-b_length/2, 0, -depth/2);
@@ -61,7 +61,7 @@ void TriPrism::Tri1() {
 	glEnd();
 }
 void TriPrism::Tri2() {
-	glColor3f(0, 1, 0);
+	//glColor3f(0, 1, 0);
 	glBegin(GL_POLYGON);
 	float h = a_length * sin(theta * PI / 180);
 	float o = a_length * cos(theta * PI / 180);
@@ -72,7 +72,7 @@ void TriPrism::Tri2() {
 	glEnd();
 }
 void TriPrism::Tri3() {
-	glColor3f(0, 0, 1);
+	//glColor3f(0, 0, 1);
 	glBegin(GL_POLYGON);
 	float h = a_length * sin(theta * PI / 180);
 	float o = a_length * cos(theta * PI / 180);
@@ -84,14 +84,14 @@ void TriPrism::Tri3() {
 }
 void TriPrism::draw() {
 	glPushMatrix();
-	glTranslated(x, y, z);
-	glRotated(rotation, 0, 1, 0);
+	positionInGL();
+	setColorInGL();
 
-	glColor3f(1, 0, 1);
+	//glColor3f(1, 0, 1);
 	Tri();
 	glPushMatrix();
 	glTranslatef(0, 0, depth);
-	glColor3f(1, 1, 0);
+	//glColor3f(1, 1, 0);
 	Tri();
 	glPopMatrix();
 	Tri1();
