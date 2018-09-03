@@ -1,7 +1,10 @@
 #ifndef MTRN3500_TRI_H
 #define MTRN3500_TRI_H
 
+#include "Shape.hpp"
+
 class TriangularPrism : public Shape {
+
 public:
 	TriangularPrism(double x_, double y_, double z_, double a_length_, double b_length_, double depth_, double theta_);
 	TriangularPrism(double x_, double y_, double z_, double rotation_, double a_length_, double b_length_, double depth_, double theta_);
@@ -25,4 +28,4 @@ private:
 	double theta;
 }
 
-#endif
+#endif MTRN3500_TRI_H

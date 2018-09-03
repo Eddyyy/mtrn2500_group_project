@@ -31,7 +31,7 @@ RectangularPrism::RectangularPrism(double x_, double y_, double z_, double rotat
 void RectangularPrism::draw() {
     glPushMatrix();
     glTranslatef(x, y, z);
-    glRotatef(rotation);
+    glRotatef(rotation, 0, 1, 0);
 
     //front face
     glPushMatrix();
@@ -83,6 +83,11 @@ void drawRectangle(double x_length, double y_length) {
 	glVertex3f(x_length/2, y_length, 0);
 	glVertex3f(x_length/2, 0, 0);
 	glEnd();
+}
+
+double RectangularPrism::getX_length()
+{
+	return 0.0;
 }
 
 double RectangularPrism::getY_length() {

@@ -16,35 +16,35 @@
 #include <GL/glut.h>
 #endif
 
+
+
+Cylinder::Cylinder() {
+	radius = 1.0;
+	depth = 1.0;
+}
+
 Cylinder::Cylinder(double x_, double y_, double z_, double radius_, double depth_) : Shape(x_, y_, z_) {
     radius = radius_;
     depth = depth_;
-    qluQuadric = gluNewQuadric();
 }
 
 Cylinder::Cylinder(double x_, double y_, double z_, double rotation_, double radius_, double depth_) : Shape(x_, y_, z_, rotation_) {
     radius = radius_;
     depth = depth_;
-    gluQuadric = gluNewQuadric();
-}
-
-Cylinder::~Cylinder() : ~Shape() {
-    gluDeleteQuadric(gluQuadric);
 }
 
 void Cylinder::draw() {
     glPushMatrix();
-    glTranslatef(x, y, z);
-    glRotatef(rotation);
+    glTranslated(x, y, z);
+    glRotated(rotation, 0, 1, 0);
 
     //Cylinder body
     glPushMatrix();
     glTranslatef(0, radius, -depth/2);
-    glBegin(GL_QUADS);
-    gluCylinder(gluQuadric, radius, radius, depth, GLint a(10), GLint b(10));
-    glEnd();
+	GLUquadric * quadric = gluNewQuadric();
+    gluCylinder(quadric, radius, radius, depth, 1, 10);
+	gluDeleteQuadric(quadric);
     glPopMatrix();
-
 
 
     glPopMatrix();

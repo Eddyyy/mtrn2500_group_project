@@ -33,11 +33,14 @@
 
 #include "Shape.hpp"
 #include "Vehicle.hpp"
+#include "RectPrism.hpp"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
 #include "HUD.hpp"
 #include "ObstacleManager.hpp"
+
+#define PI 3.14159265
 
 void display();
 void reshape(int width, int height);
@@ -152,56 +155,229 @@ void drawGoals()
 		glPopMatrix();
 	}
 }
+
 void drawSquare() {
 	glBegin(GL_QUADS);
-	glVertex3f(-2.5, 0, 0);
-	glVertex3f(-2.5, 5, 0);
-	glVertex3f(2.5, 5, 0);
-	glVertex3f(2.5, 0, 0);
+	glVertex3f(-2.5, 0, -2.5);
+	glVertex3f(-2.5, 5, -2.5);
+	glVertex3f(2.5, 5, -2.5);
+	glVertex3f(2.5, 0, -2.5);
 	glEnd();
 }
-
-void testDrawCube() {
+void drawCube() {
+	//front
 	drawSquare();
+	//back
 	glPushMatrix();
 	glTranslatef(0, 0, 5);
 	drawSquare();
 	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(2.5, 0, 2.5);
-	glRotatef(90, 0, 1, 0);
-	drawSquare();
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-2.5, 0, 2.5);
-	glRotatef(90, 0, 1, 0);
-	drawSquare();
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(0, 5, 0);
-	glRotatef(90, 1, 0, 0);
-	drawSquare();
-	glPopMatrix();
-
+	//right
 	glPushMatrix();
 	glTranslatef(0, 0, 0);
+	glRotatef(90, 0, 1, 0);
+	drawSquare();
+	glPopMatrix();
+	//left
+	glPushMatrix();
+	glTranslatef(0, 0, 0);
+	glRotatef(-90, 0, 1, 0);
+	drawSquare();
+	glPopMatrix();
+	//top
+	glPushMatrix();
+	glTranslatef(0, 2.5, -2.5);
 	glRotatef(90, 1, 0, 0);
 	drawSquare();
 	glPopMatrix();
+	//bottom
+	glPushMatrix();
+	glTranslatef(0, -2.5, -2.5);
+	glRotatef(90, 1, 0, 0);
+	drawSquare();
+	glPopMatrix();
+}
+//void testDraw() {
+//	glPushMatrix();
+//	glTranslatef(10, 10, 10);
+//	glRotatef(0, 0, 0, 0);
+//	drawCube();
+//	glPopMatrix();
+//}
 
+//void drawRect1() {
+//	glColor3f(1, 0, 0);
+//	glBegin(GL_QUADS);
+//	glVertex3f(-5, 0, -2.5);
+//	glVertex3f(-5, 2, -2.5);
+//	glVertex3f(5, 2, -2.5);
+//	glVertex3f(5, 0, -2.5);
+//	glEnd();
+//}
+//void drawRect2() {
+//	glColor3f(0, 1, 0);
+//	glBegin(GL_QUADS);
+//	glVertex3f(-5, 0, -2.5);
+//	glVertex3f(-5, 2, -2.5);
+//	glVertex3f(-5, 2, 2.5);
+//	glVertex3f(-5, 0, 2.5);
+//	glEnd();
+//}
+//void drawRect3() {
+//	glColor3f(0, 0, 1);
+//	glBegin(GL_QUADS);
+//	glVertex3f(-5, 0, -2.5);
+//	glVertex3f(-5, 0, 2.5);
+//	glVertex3f(5, 0, 2.5);
+//	glVertex3f(5, 0, -2.5);
+//	glEnd();
+//}
+//void drawRectPrism() {
+//	//Front and back
+//	drawRect1();
+//	glPushMatrix();
+//	glTranslatef(0, 0, 5);
+//	drawRect1();
+//	glPopMatrix();
+//	//Right and left
+//	drawRect2();
+//	glPushMatrix();
+//	glTranslatef(10, 0, 0);
+//	drawRect2();
+//	glPopMatrix();
+//	//Bottom and top
+//	drawRect3();
+//	glPushMatrix();
+//	glTranslatef(0, 2, 0);
+//	drawRect3();
+//	glPopMatrix();
+//}
+
+void drawTri() {
+	//glColor3f(1, 0, 1);
+	glBegin(GL_POLYGON);
+	glVertex3f(5, 0, -5);
+	glVertex3f(-5, 0, -5);
+	float h = (8.0 * sin(60 * PI / 180));
+	float o = 8 * cos(60 * PI / 180);
+	glVertex3f(5-o, h, -5);
+	glEnd();
+}
+void drawTri1() {
+	glColor3f(1, 0, 0);
+	glBegin(GL_POLYGON);
+	glVertex3f(5, 0, -5);
+	glVertex3f(-5, 0, -5);
+	glVertex3f(-5, 0, 5);
+	glVertex3f(5, 0, 5);
+	glEnd();
+}
+void drawTri2() {
+	glColor3f(0, 1, 0);
+	glBegin(GL_POLYGON);
+	float h = (8.0 * sin(60 * PI / 180));
+	float o = 8 * cos(60 * PI / 180);
+	glVertex3f(5, 0, -5);
+	glVertex3f(5 - o, h, -5);
+	glVertex3f(5 - o, h, 5);
+	glVertex3f(5, 0, 5);
+	glEnd();
+}
+void drawTri3() {
+	glColor3f(0, 0, 1);
+	glBegin(GL_POLYGON);
+	float h = (8.0 * sin(60 * PI / 180));
+	float o = 8 * cos(60 * PI / 180);
+	glVertex3f(-5, 0, -5);
+	glVertex3f(5 - o, h, -5);
+	glVertex3f(5 - o, h, 5);
+	glVertex3f(-5, 0, 5);
+	glEnd();
+}
+void drawTriPrism() {
+	glColor3f(1, 0, 1);
+	drawTri();
+	glPushMatrix();
+	glTranslatef(0, 0, 10);
+	glColor3f(1, 1, 0);
+	drawTri();
+	glPopMatrix();
+	drawTri1();
+	drawTri2();
+	drawTri3();
 }
 
-//void drawAxis() {
-//	glVertex3f(0, 0, 0);
-//	glVertex3f(1, 0, 0);
-//	glVertex3f(0, 0, 0);
-//	glVertex3f(0, 1, 0);
-//	glVertex3f(0, 0, 0);
-//	glVertex3f(0, 0, 1);
-//}
+void drawTrap() {
+	glColor3f(1, 0, 0);
+	glBegin(GL_POLYGON);
+	glVertex3f(5, 0, -2.5);
+	glVertex3f(-5, 0, -2.5);
+	glVertex3f(-4, 5, -2.5);
+	glVertex3f(4, 5, -2.5);
+	glEnd();
+}
+void drawTrap1() {
+	glColor3f(0, 1, 0);
+	glBegin(GL_POLYGON);
+	glVertex3f(5, 0, -2.5);
+	glVertex3f(-5, 0, -2.5);
+	glVertex3f(-5, 0, 2.5);
+	glVertex3f(5, 0, 2.5);
+	glEnd();
+}
+void drawTrap2() {
+	glColor3f(0, 0, 1);
+	glBegin(GL_POLYGON);
+	glVertex3f(4, 5, 2.5);
+	glVertex3f(-4, 5, 2.5);
+	glVertex3f(-4, 5, -2.5);
+	glVertex3f(4, 5, -2.5);
+	glEnd();
+}
+void drawTrap3() {
+	glColor3f(1, 1, 0);
+	glBegin(GL_POLYGON);
+	glVertex3f(-5, 0, 2.5);
+	glVertex3f(-5, 0, -2.5);
+	glVertex3f(-4, 5, -2.5);
+	glVertex3f(-4, 5, 2.5);
+	glEnd();
+}
+void drawTrap4() {
+	glColor3f(0, 1, 1);
+	glBegin(GL_POLYGON);
+	glVertex3f(5, 0, 2.5);
+	glVertex3f(5, 0, -2.5);
+	glVertex3f(4, 5, -2.5);
+	glVertex3f(4, 5, 2.5);
+	glEnd();
+}
+void drawTrapPrism() {
+	drawTrap();
+	glPushMatrix();
+	glTranslatef(0, 0, 5);
+	//glColor3f(1, 1, 0);
+	drawTrap();
+	glPopMatrix();
+	drawTrap1();
+	drawTrap2();
+	drawTrap3();
+	drawTrap4();
+}
+
+void testDraw() {
+	glPushMatrix();
+	glTranslatef(10, 10, 10);
+	glRotatef(0, 0, 0, 0);
+	//drawRectPrism();
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(-10, 10, 10);
+	glRotatef(0, 0, 0, 0);
+	drawTriPrism();
+	glPopMatrix();
+	drawTrapPrism();
+}
 
 void display() {
 	frameCounter++;
@@ -244,7 +420,12 @@ void display() {
 
 	// draw HUD
 	HUD::Draw();
-	testDrawCube();
+
+	//testing drawing shapes
+	RectPrism * testRectPrism = new RectPrism();
+	testRectPrism->draw();
+	//testDraw();
+
 	glutSwapBuffers();
 };
 

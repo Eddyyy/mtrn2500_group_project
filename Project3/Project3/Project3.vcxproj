@@ -89,12 +89,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Student\source\repos\Project3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\include;C:\Users\Student\source\repos\Project3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\Student\source\repos\Project3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\lib;C:\Users\Student\source\repos\Project3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glu32.lib;glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -157,11 +157,11 @@
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="ObstacleManager.cpp" />
     <ClCompile Include="Quaternion.cpp" />
-    <ClCompile Include="RectangularPrism.cpp" />
+    <ClCompile Include="RectPrism.cpp" />
     <ClCompile Include="RemoteDataManager.cpp" />
     <ClCompile Include="Shape.cpp" />
-    <ClCompile Include="TrapezoidalPrism.cpp" />
-    <ClCompile Include="TriangularPrism.cpp" />
+    <ClCompile Include="TrapPrism.cpp" />
+    <ClCompile Include="TriPrism.cpp" />
     <ClCompile Include="VectorMaths.cpp" />
     <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
@@ -176,11 +176,11 @@
     <ClInclude Include="Obstacle.hpp" />
     <ClInclude Include="ObstacleManager.hpp" />
     <ClInclude Include="Quaternion.hpp" />
-    <ClInclude Include="RectangularPrism.hpp" />
+    <ClInclude Include="RectPrism.hpp" />
     <ClInclude Include="RemoteDataManager.hpp" />
     <ClInclude Include="Shape.hpp" />
-    <ClInclude Include="TrapezoidalPrism.hpp" />
-    <ClInclude Include="TriangularPrism.hpp" />
+    <ClInclude Include="TrapPrism.hpp" />
+    <ClInclude Include="TriPrism.hpp" />
     <ClInclude Include="VectorMaths.hpp" />
     <ClInclude Include="Vehicle.hpp" />
   </ItemGroup>

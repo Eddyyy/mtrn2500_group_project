@@ -1,11 +1,19 @@
-#ifndef MTRN3500_CYLI_H
-#define MTRN3500_CYLI_H
+#ifndef CYLI_H
+#define CYLI_H
+
+#include "Shape.hpp"
 
 class Cylinder : public Shape {
+
+private:
+	float radius;
+	float depth;
+
 public:
+	Cylinder();
 	Cylinder(double x_, double y_, double z_, double radius_, double depth_);
 	Cylinder(double x_, double y_, double z_, double rotation_, double radius_, double depth_);
-    ~Cylinder();
+    ~Cylinder() = default;
 
 	void draw();
 
@@ -15,10 +23,6 @@ public:
 	void set_radius(double radius_);
 	void set_depth(double depth_);
 
-private:
-	double radius;
-	double depth;
-    GLUquadric* gluQuadric;
-}
+};
 
-#endif
+#endif CYLI_H
