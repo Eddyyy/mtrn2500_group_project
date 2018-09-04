@@ -23,7 +23,7 @@ using namespace std;
 TriPrism::TriPrism() : Shape() {
 	a_length = 1.0;
 	b_length = 1.0;
-	theta = PI/2;
+	theta = 90;
 	depth = 1.0;
 }
 
