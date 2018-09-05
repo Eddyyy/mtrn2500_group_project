@@ -425,6 +425,7 @@ void display() {
 	// draw HUD
 	HUD::Draw();
 
+    /*
 	//testing drawing shapes
 	RectPrism * testRectPrism = new RectPrism(20, 0, 20, 10, 10, 20);
 	testRectPrism->setColor(0, 1, 0);
@@ -445,6 +446,7 @@ void display() {
 	MyVehicle * testVehicle = new MyVehicle();
 	testVehicle->draw();
 	//testDraw();
+    */
 
 	glutSwapBuffers();
 };

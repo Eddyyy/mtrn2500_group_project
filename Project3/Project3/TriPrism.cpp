@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TriPrism.hpp"
+#include <math.h>
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>

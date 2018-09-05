@@ -144,6 +144,8 @@ DWORD OSread(char * lpBuf, DWORD dwToRead)
 #include <errno.h>
 #include <unistd.h>
 
+#include <cstring>
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>

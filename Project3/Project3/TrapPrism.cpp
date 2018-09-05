@@ -1,11 +1,22 @@
 #include <iostream>
 #include "TrapPrism.hpp"
 
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#elif defined(WIN32)
 #include <Windows.h>
 #include <tchar.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
+#else
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#endif
 
 using namespace std;
 
