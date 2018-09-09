@@ -40,6 +40,12 @@ RectPrism::RectPrism(double x_, double y_, double z_, double rotation_, float x_
 	z_length = z_length_;
 }
 
+RectPrism::RectPrism(ShapeInit shapeStruct) : Shape(shapeStruct) {
+	x_length = shapeStruct.params.rect.xlen;
+	y_length = shapeStruct.params.rect.ylen;
+	z_length = shapeStruct.params.rect.zlen;
+}
+
 //RectPrism::~RectPrism() {}
 
 void RectPrism::Rect1() {

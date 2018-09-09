@@ -15,6 +15,7 @@ public:
 	TriPrism();
 	TriPrism(double x_, double y_, double z_, float a_length_, float b_length_, float theta_, float depth_);
 	TriPrism(double x_, double y_, double z_, double rotation_, float a_length_, float b_length_, float theta_, float depth_);
+	TriPrism(ShapeInit shapeStruct);
 	~TriPrism() = default;
 	void Tri();
 	void Tri1();

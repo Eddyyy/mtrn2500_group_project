@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Shape.hpp"
 #include "VectorMaths.hpp"
+#include "Messages.hpp"
 #include <vector>
 
 class Vehicle : public Shape {
@@ -18,6 +19,7 @@ public:
 	virtual void update(double speed_, double steering_, double dt);
 
 	virtual void draw() = 0;
+	virtual std::vector<ShapeInit> getVehicleServerModelVector() = 0;
 
 	static const int MAX_FORWARD_SPEED_MPS = 10;
 	static const int MAX_BACKWARD_SPEED_MPS = -4;

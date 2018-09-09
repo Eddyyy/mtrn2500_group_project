@@ -13,7 +13,8 @@ public:
 	Cylinder();
 	Cylinder(double x_, double y_, double z_, double radius_, double depth_);
 	Cylinder(double x_, double y_, double z_, double rotation_, double radius_, double depth_);
-    ~Cylinder() = default;
+	Cylinder(ShapeInit shapeStruct);
+	~Cylinder() = default;
 
 	void draw();
 	ShapeInit getServerModel();

@@ -32,6 +32,11 @@ Cylinder::Cylinder(double x_, double y_, double z_, double rotation_, double rad
     depth = depth_;
 }
 
+Cylinder::Cylinder(ShapeInit shapeStruct) : Shape(shapeStruct) {
+	radius = shapeStruct.params.cyl.radius;
+	depth = shapeStruct.params.cyl.depth;
+}
+
 void Cylinder::draw() {
     glPushMatrix();
 	positionInGL();

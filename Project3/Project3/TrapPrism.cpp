@@ -44,6 +44,14 @@ TrapPrism::TrapPrism(double x_, double y_, double z_, double rotation_, float a_
 	a_offset = a_offset_;
 }
 
+TrapPrism::TrapPrism(ShapeInit shapeStruct) : Shape(shapeStruct) {
+	a_length = shapeStruct.params.trap.alen;
+	b_length = shapeStruct.params.trap.blen;
+	height = shapeStruct.params.trap.height;
+	depth = shapeStruct.params.trap.depth;
+	a_offset = shapeStruct.params.trap.aoff;
+}
+
 void TrapPrism::Trap() {
 	//glColor3f(1, 0, 0);
 	glBegin(GL_POLYGON);

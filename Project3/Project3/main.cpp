@@ -115,6 +115,24 @@ int main(int argc, char ** argv) {
 	// -------------------------------------------------------------------------
 
 	vehicle = new MyVehicle();
+	Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
+	body->setColor(0, 1, 1);
+	vehicle->addShape(body);
+
+	TriPrism * driver = new TriPrism(0.75, 2.0, 0.0, 0.5, 0.5, 45, 1.0);
+	driver->setColor(1, 0, 0);
+	driver->draw();
+	vehicle->addShape(driver);
+
+	TrapPrism * passenger = new TrapPrism(-0.75, 2.0, 0.0, 1.5, 1.0, 1.0, 2.0, 0.25);
+	passenger->setColor(0, 0, 1);
+	passenger->draw();
+	vehicle->addShape(passenger);
+
+	Cylinder * testCylinder = new Cylinder(1.5, 0.5, 0.0, 90, 0.5, 1.0);
+	testCylinder->setColor(1, 1, 0);
+	testCylinder->draw();
+	vehicle->addShape(testCylinder);
 
 
 	// add test obstacles
@@ -558,9 +576,28 @@ void idle() {
 					VehicleModel vm;
 					vm.remoteID = 0;
 
-					//
 					// student code goes here
-					//
+				   /*MyVehicle* new_vehicle = new MyVehicle();
+					Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
+					body->setColor(0, 1, 1);
+					new_vehicle->addShape(body);
+
+					TriPrism * driver = new TriPrism(0.75, 2.0, 0.0, 0.5, 0.5, 45, 1.0);
+					driver->setColor(1, 0, 0);
+					driver->draw();
+					new_vehicle->addShape(driver);
+
+					TrapPrism * passenger = new TrapPrism(-0.75, 2.0, 0.0, 1.5, 1.0, 1.0, 2.0, 0.25);
+					passenger->setColor(0, 0, 1);
+					passenger->draw();
+					new_vehicle->addShape(passenger);
+
+					Cylinder * testCylinder = new Cylinder(1.5, 0.5, 0.0, 90, 0.5, 1.0);
+					testCylinder->setColor(1, 1, 0);
+					testCylinder->draw();
+					new_vehicle->addShape(testCylinder);*/
+					
+					vm.shapes = vehicle->getVehicleServerModelVector();
 
 					RemoteDataManager::Write(GetVehicleModelStr(vm));
 				}
@@ -596,7 +633,7 @@ void idle() {
 								VehicleModel vm = models[i];
 								
 								// uncomment the line below to create remote vehicles
-								otherVehicles[vm.remoteID] = new MyVehicle();
+								otherVehicles[vm.remoteID] = new MyVehicle(vm.shapes);
 
 								//
 								// more student code goes here

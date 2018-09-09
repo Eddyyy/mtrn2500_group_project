@@ -11,6 +11,7 @@ public:
 	Shape();
 	Shape(double x_, double y_, double z_);
 	Shape(double x_, double y_, double z_, double rotation_);
+	Shape(ShapeInit shapeStruct);
 	virtual ~Shape();
 
 	virtual void draw() = 0;

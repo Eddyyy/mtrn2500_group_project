@@ -9,10 +9,11 @@ private:
 
 public:
 	MyVehicle();
+	MyVehicle(std::vector<ShapeInit> shapes_);
 	~MyVehicle() = default;
 
 	void draw();
-	VehicleModel getServerModel();
+	std::vector<ShapeInit> getVehicleServerModelVector();
 };
 
 #endif MYVEHICLE_H

@@ -23,7 +23,7 @@
 #endif
 
 MyVehicle::MyVehicle() : Vehicle() {
-	Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
+	/*Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
 	body->setColor(0, 1, 1);
 	MyVehicle::addShape(body);
 
@@ -39,7 +39,33 @@ MyVehicle::MyVehicle() : Vehicle() {
 
 	Cylinder * testCylinder = new Cylinder(1.5, 0.5, 0.0, 90, 0.5, 1.0);
 	testCylinder->setColor(1, 1, 0);
-	testCylinder->draw();
+	testCylinder->draw();*/
+}
+
+MyVehicle::MyVehicle(std::vector<ShapeInit> shapes_) {
+	for (std::vector<ShapeInit>::iterator item = shapes_.begin();
+		item != shapes_.end();
+		item++) {
+		Shape* new_shape = NULL;
+		switch((*item).type) {
+			case RECTANGULAR_PRISM:
+				new_shape = new RectPrism(*item);
+				break;
+			case TRIANGULAR_PRISM:
+				new_shape = new TriPrism(*item);
+				break;
+			case TRAPEZOIDAL_PRISM:
+				new_shape = new TrapPrism(*item);
+				break;
+			case CYLINDER:
+				new_shape = new Cylinder(*item);
+				break;
+			case UNKNOWN_SHAPE:
+				new_shape = NULL;
+				break;
+		}
+		MyVehicle::addShape(new_shape);
+	}
 }
 
 void MyVehicle::draw() {
@@ -56,7 +82,12 @@ void MyVehicle::draw() {
 	glPopMatrix();
 }
 
-VehicleModel MyVehicle::getServerModel()
-{
-	return VehicleModel();
+std::vector<ShapeInit> MyVehicle::getVehicleServerModelVector() {
+	std::vector<ShapeInit> vehicleShapes;
+	for (std::vector<Shape *>::iterator item = shapes.begin();
+			item != shapes.end();
+			item++) {
+		vehicleShapes.push_back((*item)->getServerModel());
+	}
+	return vehicleShapes;
 }

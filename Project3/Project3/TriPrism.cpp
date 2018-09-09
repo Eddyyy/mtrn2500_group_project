@@ -42,6 +42,14 @@ TriPrism::TriPrism(double x_, double y_, double z_, double rotation_, float a_le
 	depth = depth_;
 }
 
+TriPrism::TriPrism(ShapeInit shapeStruct) : Shape(shapeStruct) {
+	a_length = shapeStruct.params.tri.alen;
+	b_length = shapeStruct.params.tri.blen;
+	theta = shapeStruct.params.tri.angle;
+	depth = shapeStruct.params.tri.depth;
+}
+
+
 void TriPrism::Tri() {
 	//glColor3f(1, 0, 1);
 	glBegin(GL_POLYGON);

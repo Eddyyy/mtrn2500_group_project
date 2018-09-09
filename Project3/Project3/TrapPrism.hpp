@@ -16,6 +16,7 @@ public:
 	TrapPrism();
 	TrapPrism(double x_, double y_, double z_, float a_length_, float b_length_, float height_, float depth_, float a_offset_);
 	TrapPrism(double x_, double y_, double z_, double rotation_, float a_length_, float b_length_, float height_, float depth_, float a_offset_);
+	TrapPrism(ShapeInit shapeStruct);
 	~TrapPrism() = default;
 	void Trap();
 	void Trap1();

@@ -1,11 +1,3 @@
-﻿  HUD.cpp
-g:\users\edward_pc\onedrive - unsw\uni files\2018\s2\mtrn2500\mtrn2500_group_project\project3\project3\hud.cpp(41): warning C4018: '<': signed/unsigned mismatch
-  MyVehicle.cpp
-  RectPrism.cpp
-  RemoteDataManager.cpp
-  TrapPrism.cpp
-  TriPrism.cpp
-  main.cpp
-g:\users\edward_pc\onedrive - unsw\uni files\2018\s2\mtrn2500\mtrn2500_group_project\project3\project3\main.cpp(144): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  main.cpp
+g:\users\edward_pc\onedrive - unsw\uni files\2018\s2\mtrn2500\mtrn2500_group_project\project3\project3\main.cpp(162): warning C4018: '<': signed/unsigned mismatch
   Project3.vcxproj -> G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\Debug\Project3.exe

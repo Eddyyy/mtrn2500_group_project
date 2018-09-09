@@ -41,7 +41,20 @@ Shape::Shape(double x_, double y_, double z_, double rotation_) {
 
 	rotation = rotation_;
 	red = green = blue = 1.0;
-};
+}
+Shape::Shape(ShapeInit shapeStruct) {
+	x = shapeStruct.xyz[0];
+	y = shapeStruct.xyz[1];
+	z = shapeStruct.xyz[2];
+
+	rotation = shapeStruct.rotation;
+
+	red = shapeStruct.rgb[0];
+	green = shapeStruct.rgb[1];
+	blue = shapeStruct.rgb[2];
+
+}
+;
 
 Shape::~Shape() {
 }
