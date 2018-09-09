@@ -20,6 +20,7 @@ public:
 	void Rect2();
 	void Rect3();
 	void draw();
+	ShapeInit getServerModel();
 	/*double GetX();
 	double GetY();
 	double GetZ();

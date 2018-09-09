@@ -96,3 +96,15 @@ void RectPrism::draw() {
 
 	glPopMatrix();
 }
+
+ShapeInit RectPrism::getServerModel() {
+	ShapeInit shapeModel = Shape::getServerModel();
+
+	shapeModel.type = ShapeType::RECTANGULAR_PRISM;
+	
+	shapeModel.params.rect.xlen = x_length;
+	shapeModel.params.rect.ylen = y_length;
+	shapeModel.params.rect.zlen = z_length;
+	
+	return shapeModel;
+}

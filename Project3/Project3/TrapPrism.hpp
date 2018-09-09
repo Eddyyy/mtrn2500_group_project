@@ -23,6 +23,7 @@ public:
 	void Trap3();
 	void Trap4();
 	void draw();
+	ShapeInit getServerModel();
 	/*double GetX();
 	double GetY();
 	double GetZ();

@@ -4,6 +4,7 @@
 #include "TriPrism.hpp"
 #include "TrapPrism.hpp"
 #include "Cylinder.hpp"
+#include "Messages.hpp"
 
 
 #ifdef __APPLE__
@@ -53,4 +54,9 @@ void MyVehicle::draw() {
 	}
 
 	glPopMatrix();
+}
+
+VehicleModel MyVehicle::getServerModel()
+{
+	return VehicleModel();
 }

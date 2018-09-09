@@ -70,6 +70,21 @@ void Cylinder::draw() {
     glPopMatrix();
 }
 
+ShapeInit Cylinder::getServerModel() {
+	ShapeInit shapeModel = Shape::getServerModel();
+
+	shapeModel.type = ShapeType::CYLINDER;
+
+	shapeModel.params.cyl.radius = radius;
+	shapeModel.params.cyl.depth = depth;
+
+	shapeModel.params.cyl.isRolling = false;
+	shapeModel.params.cyl.isSteering = false;
+
+	return shapeModel;
+}
+
+
 double Cylinder::get_radius() {
 	return radius;
 }

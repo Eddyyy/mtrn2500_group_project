@@ -101,3 +101,16 @@ void TriPrism::draw() {
 
 	glPopMatrix();
 }
+
+ShapeInit TriPrism::getServerModel() {
+	ShapeInit shapeModel = Shape::getServerModel();
+
+	shapeModel.type = ShapeType::TRIANGULAR_PRISM;
+
+	shapeModel.params.tri.alen = a_length;
+	shapeModel.params.tri.blen = b_length;
+	shapeModel.params.tri.angle = theta;
+	shapeModel.params.tri.depth = depth;
+
+	return shapeModel;
+}

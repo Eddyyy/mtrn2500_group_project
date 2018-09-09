@@ -16,6 +16,7 @@ public:
     ~Cylinder() = default;
 
 	void draw();
+	ShapeInit getServerModel();
 
 	double get_radius();
 	double get_depth();

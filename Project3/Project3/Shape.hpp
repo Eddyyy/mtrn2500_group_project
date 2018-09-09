@@ -2,6 +2,8 @@
 #ifndef MTRN3500_SHAPE_H
 #define MTRN3500_SHAPE_H
 
+#include "Messages.hpp"
+
 // Abstract class
 class Shape {
 
@@ -12,6 +14,7 @@ public:
 	virtual ~Shape();
 
 	virtual void draw() = 0;
+	virtual ShapeInit getServerModel();
 
 	double getX();
 	double getY();

@@ -107,3 +107,17 @@ void TrapPrism::draw() {
 
 	glPopMatrix();
 }
+
+ShapeInit TrapPrism::getServerModel() {
+	ShapeInit shapeModel = Shape::getServerModel();
+
+	shapeModel.type = ShapeType::TRAPEZOIDAL_PRISM;
+
+	shapeModel.params.trap.alen = a_length;
+	shapeModel.params.trap.blen = b_length;
+	shapeModel.params.trap.height = height;
+	shapeModel.params.trap.depth = depth;
+	shapeModel.params.trap.aoff = a_offset;
+
+	return shapeModel;
+}

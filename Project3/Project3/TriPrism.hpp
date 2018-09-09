@@ -21,6 +21,7 @@ public:
 	void Tri2();
 	void Tri3();
 	void draw();
+	ShapeInit getServerModel();
 	/*double GetX();
 	double GetY();
 	double GetZ();

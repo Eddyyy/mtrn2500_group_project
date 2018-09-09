@@ -1,5 +1,6 @@
 
 #include "Shape.hpp"
+#include "Messages.hpp"
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -43,6 +44,21 @@ Shape::Shape(double x_, double y_, double z_, double rotation_) {
 };
 
 Shape::~Shape() {
+}
+
+ShapeInit Shape::getServerModel() {
+	ShapeInit shapeModel;
+	shapeModel.xyz[0] = x;
+	shapeModel.xyz[1] = y;
+	shapeModel.xyz[2] = z;
+	shapeModel.rotation = rotation;
+	shapeModel.rgb[0] = red;
+	shapeModel.rgb[1] = green;
+	shapeModel.rgb[2] = blue;
+
+	shapeModel.type = ShapeType(UNKNOWN_SHAPE);
+
+	return shapeModel;
 }
 
 double Shape::getX() {
