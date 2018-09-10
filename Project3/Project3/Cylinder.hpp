@@ -2,6 +2,7 @@
 #define CYLI_H
 
 #include "Shape.hpp"
+#include "Messages.hpp"
 
 class Cylinder : public Shape {
 

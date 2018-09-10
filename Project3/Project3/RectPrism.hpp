@@ -1,7 +1,7 @@
 #ifndef RECT_PRISM_H
 #define RECT_PRISM_H
 
-
+#include "Messages.hpp"
 #include "Shape.hpp"
 
 class RectPrism : public Shape {

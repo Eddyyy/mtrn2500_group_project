@@ -1,4 +1,5 @@
 #include "Cylinder.hpp"
+#include "Messages.hpp"
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>

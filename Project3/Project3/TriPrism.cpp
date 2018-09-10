@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TriPrism.hpp"
+#include "Messages.hpp"
 #include <math.h>
 
 #ifdef __APPLE__

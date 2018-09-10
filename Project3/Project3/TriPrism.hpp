@@ -2,6 +2,7 @@
 #define TRI_PRISM_H
 
 #include "Shape.hpp"
+#include "Messages.hpp"
 
 class TriPrism : public Shape {
 

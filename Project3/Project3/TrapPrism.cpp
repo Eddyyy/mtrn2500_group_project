@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TrapPrism.hpp"
+#include "Messages.hpp"
 
 
 #ifdef __APPLE__

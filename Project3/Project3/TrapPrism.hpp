@@ -2,6 +2,7 @@
 #define TRAP_PRISM_H
 
 #include "Shape.hpp"
+#include "Messages.hpp"
 
 class TrapPrism : public Shape {
 
