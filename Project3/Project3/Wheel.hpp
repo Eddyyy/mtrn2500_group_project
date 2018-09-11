@@ -14,6 +14,12 @@ public:
 	Wheel(double x_, double y_, double z_, double rotation_, double radius_, double depth_, bool isSteering_);
     Wheel(ShapeInit shapeStruct);
 
+    void draw();
+
+    void setWheelSpeed(double speed);
+    void setSteeringAngle(double angle);
+    double getIsSteering();
+
     ShapeInit getServerModel();
 private:
     bool isSteering;

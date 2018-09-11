@@ -4,6 +4,7 @@
 #include "TriPrism.hpp"
 #include "TrapPrism.hpp"
 #include "Cylinder.hpp"
+#include "Wheel.hpp"
 #include "Messages.hpp"
 
 
@@ -58,7 +59,11 @@ MyVehicle::MyVehicle(std::vector<ShapeInit> shapes_) {
 				new_shape = new TrapPrism(*item);
 				break;
 			case CYLINDER:
-				new_shape = new Cylinder(*item);
+                if ((*item).params.cyl.isRolling) {
+				    new_shape = new Wheel(*item);
+                } else {
+                    new_shape = new Cylinder(*item);
+                }
 				break;
 			case UNKNOWN_SHAPE:
 				new_shape = NULL;
@@ -76,7 +81,14 @@ void MyVehicle::draw() {
 	for (std::vector<Shape *>::iterator item = shapes.begin();
 		 item != shapes.end();
 		 item++) {
-		(*item)->draw();
+        if (static_cast<Wheel>(*item)) {
+            Wheel wheelShape = static_cast<Wheel>(*item);
+            wheelShape.setWheelSpeed(speed);
+            if (wheelShape.getIsSteering()) {
+                wheelShape.setSteeringAngle(steering);
+            }
+        }
+        (*item)->draw();
 	}
 
 	glPopMatrix();
