@@ -23,6 +23,8 @@
 #include <GL/glut.h>
 #endif
 
+#define PI 3.14159265
+
 MyVehicle::MyVehicle() : Vehicle() {
 	/*Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
 	body->setColor(0, 1, 1);
@@ -41,6 +43,8 @@ MyVehicle::MyVehicle() : Vehicle() {
 	Cylinder * testCylinder = new Cylinder(1.5, 0.5, 0.0, 90, 0.5, 1.0);
 	testCylinder->setColor(1, 1, 0);
 	testCylinder->draw();*/
+
+    wheelAngle = 0;
 }
 
 MyVehicle::MyVehicle(std::vector<ShapeInit> shapes_) {
@@ -71,6 +75,7 @@ MyVehicle::MyVehicle(std::vector<ShapeInit> shapes_) {
 		}
 		MyVehicle::addShape(new_shape);
 	}
+    wheelAngle = 0;
 }
 
 void MyVehicle::draw() {
@@ -83,7 +88,7 @@ void MyVehicle::draw() {
 		 item++) {
         if (dynamic_cast<Wheel*>(*item)) {
             Wheel* wheelShape = dynamic_cast<Wheel*>(*item);
-            wheelShape->setWheelSpeed(speed);
+            wheelShape->setRotationAngle(wheelAngle);
             if (wheelShape->getIsSteering()) {
                 wheelShape->setSteeringAngle(steering);
             }
@@ -92,6 +97,22 @@ void MyVehicle::draw() {
 	}
 
 	glPopMatrix();
+}
+
+void MyVehicle::update(double dt) {
+    Vehicle::update(dt);
+	wheelAngle += 2*PI*(dt * speed);
+
+	while (wheelAngle > 1000) wheelAngle -= 1000;
+	while (wheelAngle < -1000) wheelAngle += 1000;
+}
+
+void MyVehicle::update(double speed_, double steering_, double dt) {
+    Vehicle::update(speed_, steering_, dt);
+	wheelAngle += 2*PI*(dt * speed);
+
+	while (wheelAngle > 1000) wheelAngle -= 1000;
+	while (wheelAngle < -1000) wheelAngle += 1000;
 }
 
 std::vector<ShapeInit> MyVehicle::getVehicleServerModelVector() {

@@ -16,13 +16,13 @@ public:
 
     void draw();
 
-    void setWheelSpeed(double speed);
+    void setRotationAngle(double rotAngle);
     void setSteeringAngle(double angle);
     double getIsSteering();
 
     ShapeInit getServerModel();
 private:
-    double linearVelocity;
+    double rotationAngle;
     double steeringAngle;
     bool isSteering;
 };

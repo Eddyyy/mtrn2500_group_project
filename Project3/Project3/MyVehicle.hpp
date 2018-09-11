@@ -5,7 +5,8 @@
 #include "Messages.hpp"
 
 class MyVehicle : public Vehicle {
-private:
+protected:
+    double wheelAngle;
 
 public:
 	MyVehicle();
@@ -13,6 +14,10 @@ public:
 	~MyVehicle() = default;
 
 	void draw();
+
+    void update(double dt);
+    void update(double speed_, double steering_, double dt);
+
 	std::vector<ShapeInit> getVehicleServerModelVector();
 };
 

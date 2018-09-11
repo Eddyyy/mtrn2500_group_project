@@ -18,24 +18,24 @@
 
 Wheel::Wheel() : Cylinder() {
     isSteering = false;
-    linearVelocity = 0;
+    rotationAngle = 0;
     steeringAngle = 0;
 }
 
 Wheel::Wheel(double x_, double y_, double z_, double radius_, double depth_, bool isSteering_) : Cylinder(x_, y_, z_, radius_, depth_) {
     isSteering = isSteering_;
-    linearVelocity = 0;
+    rotationAngle = 0;
     steeringAngle = 0;
 }
 Wheel::Wheel(double x_, double y_, double z_, double rotation_, double radius_, double depth_, bool isSteering_) : Cylinder(x_, y_, z_, rotation_, radius_, depth_) {
     isSteering = isSteering_;
-    linearVelocity = 0;
+    rotationAngle = 0;
     steeringAngle = 0;
 }
 
 Wheel::Wheel(ShapeInit shapeStruct) : Cylinder(shapeStruct) {
     isSteering = shapeStruct.params.cyl.isSteering;
-    linearVelocity = 0;
+    rotationAngle = 0;
     steeringAngle = 0;
 }
 
@@ -46,13 +46,17 @@ void Wheel::draw() {
     
     glRotated(-steeringAngle, 0, 1, 0);
 
+    glTranslated(0,radius,0);
+    glRotated(-rotationAngle, 0, 0, 1);
+    glTranslated(0,-radius,0);
+
     //Wheel body
     glPushMatrix();
     glTranslatef(0, radius, -depth/2);
 	GLUquadric * quadric = gluNewQuadric();
 	gluQuadricDrawStyle(quadric, GLU_FILL);
 	gluQuadricNormals(quadric, GLU_SMOOTH);
-    gluCylinder(quadric, radius, radius, depth, 50, 10);
+    gluCylinder(quadric, radius, radius, depth, 5, 10);
 	gluDeleteQuadric(quadric);
     glPopMatrix();
 
@@ -62,7 +66,7 @@ void Wheel::draw() {
 	quadric = gluNewQuadric();
 	gluQuadricDrawStyle(quadric, GLU_FILL);
 	gluQuadricNormals(quadric, GLU_SMOOTH);
-	gluDisk(quadric, 0, radius, 50, 10);
+	gluDisk(quadric, 0, radius, 5, 10);
 	gluDeleteQuadric(quadric);
 	glPopMatrix();
 
@@ -72,15 +76,18 @@ void Wheel::draw() {
 	quadric = gluNewQuadric();
 	gluQuadricDrawStyle(quadric, GLU_FILL);
 	gluQuadricNormals(quadric, GLU_SMOOTH);
-	gluDisk(quadric, 0, radius, 50, 10);
+	gluDisk(quadric, 0, radius, 5, 10);
 	gluDeleteQuadric(quadric);
 	glPopMatrix();
 
     glPopMatrix();
 }
 
-void Wheel::setWheelSpeed(double speed) {
-    linearVelocity = speed;
+void Wheel::setRotationAngle(double rotAngle) {
+    rotationAngle = rotAngle/radius;
+
+	while (rotationAngle > 360) rotationAngle -= 360;
+	while (rotationAngle < 0) rotationAngle += 360;
 }
 void Wheel::setSteeringAngle(double angle) {
     steeringAngle = angle;
