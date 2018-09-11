@@ -37,6 +37,7 @@
 #include "TriPrism.hpp"
 #include "TrapPrism.hpp"
 #include "Cylinder.hpp"
+#include "Wheel.hpp"
 #include "MyVehicle.hpp"
 
 #include "RemoteDataManager.hpp"
@@ -133,6 +134,26 @@ int main(int argc, char ** argv) {
 	testCylinder->setColor(1, 1, 0);
 	testCylinder->draw();
 	vehicle->addShape(testCylinder);
+
+    Wheel * frontLeftWheel = new Wheel(0.75, 0, 1.0, 0.6, 0.5, true);
+	frontLeftWheel->setColor(1, 1, 0);
+	frontLeftWheel->draw();
+    vehicle->addShape(frontLeftWheel);
+    
+    Wheel * frontRightWheel = new Wheel(0.75, 0, -1.0, 0.6, 0.5, true);
+	frontRightWheel->setColor(1, 1, 0);
+	frontRightWheel->draw();
+    vehicle->addShape(frontRightWheel);
+
+    Wheel * backLeftWheel = new Wheel(-0.75, 0, 1.0, 1.0, 0.5, false);
+	backLeftWheel->setColor(1, 0, 0);
+	backLeftWheel->draw();
+    vehicle->addShape(backLeftWheel);
+    
+    Wheel * backRightWheel = new Wheel(-0.75, 0, -1.0, 1.0, 0.5, false);
+	backRightWheel->setColor(1, 0, 0);
+	backRightWheel->draw();
+    vehicle->addShape(backRightWheel);
 
 
 	// add test obstacles

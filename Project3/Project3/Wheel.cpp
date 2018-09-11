@@ -44,7 +44,7 @@ void Wheel::draw() {
 	positionInGL();
 	setColorInGL();
     
-    glRotated(steeringAngle, 0, 1, 0);
+    glRotated(-steeringAngle, 0, 1, 0);
 
     //Wheel body
     glPushMatrix();
@@ -79,10 +79,10 @@ void Wheel::draw() {
     glPopMatrix();
 }
 
-void setWheelSpeed(double speed) {
+void Wheel::setWheelSpeed(double speed) {
     linearVelocity = speed;
 }
-void setSteeringAngle(double angle) {
+void Wheel::setSteeringAngle(double angle) {
     steeringAngle = angle;
 }
 double Wheel::getIsSteering() {

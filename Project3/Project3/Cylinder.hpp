@@ -6,7 +6,7 @@
 
 class Cylinder : public Shape {
 
-private:
+protected:
 	float radius;
 	float depth;
 

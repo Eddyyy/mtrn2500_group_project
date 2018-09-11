@@ -22,6 +22,8 @@ public:
 
     ShapeInit getServerModel();
 private:
+    double linearVelocity;
+    double steeringAngle;
     bool isSteering;
 };
 
