@@ -58,7 +58,7 @@ void TriPrism::Tri() {
 	glVertex3f(-b_length/2, 0, -depth/2);
 	float h = a_length * sin(theta * PI / 180);
 	float o = a_length * cos(theta * PI / 180);
-	glVertex3f(b_length/2 - o, h, -depth/2);
+	glVertex3f(o - b_length/2, h, -depth/2);
 	glEnd();
 }
 void TriPrism::Tri1() {
@@ -76,8 +76,8 @@ void TriPrism::Tri2() {
 	float h = a_length * sin(theta * PI / 180);
 	float o = a_length * cos(theta * PI / 180);
 	glVertex3f(b_length/2, 0, -depth/2);
-	glVertex3f(b_length/2 - o, h, -depth/2);
-	glVertex3f(b_length/2 - o, h, depth/2);
+	glVertex3f(o - b_length/2, h, -depth/2);
+	glVertex3f(o - b_length/2, h, depth/2);
 	glVertex3f(b_length/2, 0, depth/2);
 	glEnd();
 }
@@ -87,8 +87,8 @@ void TriPrism::Tri3() {
 	float h = a_length * sin(theta * PI / 180);
 	float o = a_length * cos(theta * PI / 180);
 	glVertex3f(-b_length/2, 0, -depth/2);
-	glVertex3f(b_length/2 - o, h, -depth/2);
-	glVertex3f(b_length/2 - o, h, depth/2);
+	glVertex3f(o - b_length/2, h, -depth/2);
+	glVertex3f(o - b_length/2, h, depth/2);
 	glVertex3f(-b_length/2, 0, depth/2);
 	glEnd();
 }

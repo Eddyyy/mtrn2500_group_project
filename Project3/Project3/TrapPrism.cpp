@@ -56,10 +56,10 @@ TrapPrism::TrapPrism(ShapeInit shapeStruct) : Shape(shapeStruct) {
 void TrapPrism::Trap() {
 	//glColor3f(1, 0, 0);
 	glBegin(GL_POLYGON);
-	glVertex3f(a_length/2, 0, -depth/2);
-	glVertex3f(a_length/2 - a_offset, height, -depth/2);
-	glVertex3f(a_length/2 - a_offset - b_length, height, -depth/2);
 	glVertex3f(-a_length/2, 0, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset), height, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset - b_length), height, -depth/2);
+	glVertex3f(a_length/2, 0, -depth/2);
 	glEnd();
 }
 void TrapPrism::Trap1() {
@@ -74,28 +74,28 @@ void TrapPrism::Trap1() {
 void TrapPrism::Trap2() {
 	//glColor3f(0, 0, 1);
 	glBegin(GL_POLYGON);
-	glVertex3f(a_length/2 - a_offset, height, -depth/2);
-	glVertex3f(a_length/2 - a_offset - b_length, height, -depth/2);
-	glVertex3f(a_length/2 - a_offset - b_length, height, depth/2);
-	glVertex3f(a_length/2 - a_offset, height, depth/2);
+	glVertex3f(-(a_length/2 - a_offset), height, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset - b_length), height, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset - b_length), height, depth/2);
+	glVertex3f(-(a_length/2 - a_offset), height, depth/2);
 	glEnd();
 }
 void TrapPrism::Trap3() {
 	//glColor3f(1, 1, 0);
 	glBegin(GL_POLYGON);
-	glVertex3f(a_length/2, 0, -depth/2);
-	glVertex3f(a_length/2 - a_offset, height, -depth/2);
-	glVertex3f(a_length/2 - a_offset, height, depth/2);
-	glVertex3f(a_length/2, 0, depth/2);
+	glVertex3f(-(a_length/2), 0, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset), height, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset), height, depth/2);
+	glVertex3f(-(a_length/2), 0, depth/2);
 	glEnd();
 }
 void TrapPrism::Trap4() {
 	//glColor3f(0, 1, 1);
 	glBegin(GL_POLYGON);
-	glVertex3f(-a_length/2, 0, -depth/2);
-	glVertex3f(a_length/2 - a_offset - b_length, height, -depth/2);
-	glVertex3f(a_length/2 - a_offset - b_length, height, depth/2);
-	glVertex3f(-a_length/2, 0, depth/2);
+	glVertex3f(a_length/2, 0, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset - b_length), height, -depth/2);
+	glVertex3f(-(a_length/2 - a_offset - b_length), height, depth/2);
+	glVertex3f(a_length/2, 0, depth/2);
 	glEnd();
 }
 void TrapPrism::draw() {
