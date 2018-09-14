@@ -38,6 +38,7 @@
 #include "Cylinder.hpp"
 #include "Wheel.hpp"
 #include "MyVehicle.hpp"
+#include "Tractor.hpp"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
@@ -114,45 +115,7 @@ int main(int argc, char ** argv) {
 	//   custom vehicle.
 	// -------------------------------------------------------------------------
 
-	vehicle = new MyVehicle();
-	Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
-	body->setColor(0, 1, 1);
-	vehicle->addShape(body);
-
-	TriPrism * driver = new TriPrism(0.75, 2.0, 0.0, 0.5, 0.5, 45, 1.0);
-	driver->setColor(1, 0, 0);
-	driver->draw();
-	vehicle->addShape(driver);
-
-	TrapPrism * passenger = new TrapPrism(-0.75, 2.0, 0.0, 1.5, 1.0, 1.0, 2.0, 0.25);
-	passenger->setColor(0, 0, 1);
-	passenger->draw();
-	vehicle->addShape(passenger);
-
-	Cylinder * testCylinder = new Cylinder(1.5, 0.5, 0.0, 90, 0.5, 1.0);
-	testCylinder->setColor(1, 1, 0);
-	testCylinder->draw();
-	vehicle->addShape(testCylinder);
-
-    Wheel * frontLeftWheel = new Wheel(0.75, 0, 1.0, 0.6, 0.5, true);
-	frontLeftWheel->setColor(1, 1, 0);
-	frontLeftWheel->draw();
-    vehicle->addShape(frontLeftWheel);
-    
-    Wheel * frontRightWheel = new Wheel(0.75, 0, -1.0, 0.6, 0.5, true);
-	frontRightWheel->setColor(1, 1, 0);
-	frontRightWheel->draw();
-    vehicle->addShape(frontRightWheel);
-
-    Wheel * backLeftWheel = new Wheel(-0.75, 0, 1.0, 1.0, 0.5, false);
-	backLeftWheel->setColor(1, 0, 0);
-	backLeftWheel->draw();
-    vehicle->addShape(backLeftWheel);
-    
-    Wheel * backRightWheel = new Wheel(-0.75, 0, -1.0, 1.0, 0.5, false);
-	backRightWheel->setColor(1, 0, 0);
-	backRightWheel->draw();
-    vehicle->addShape(backRightWheel);
+	vehicle = new Tractor();
 
 
 	// add test obstacles
@@ -198,228 +161,6 @@ void drawGoals()
 	}
 }
 
-void drawSquare() {
-	glBegin(GL_QUADS);
-	glVertex3f(-2.5, 0, -2.5);
-	glVertex3f(-2.5, 5, -2.5);
-	glVertex3f(2.5, 5, -2.5);
-	glVertex3f(2.5, 0, -2.5);
-	glEnd();
-}
-void drawCube() {
-	//front
-	drawSquare();
-	//back
-	glPushMatrix();
-	glTranslatef(0, 0, 5);
-	drawSquare();
-	glPopMatrix();
-	//right
-	glPushMatrix();
-	glTranslatef(0, 0, 0);
-	glRotatef(90, 0, 1, 0);
-	drawSquare();
-	glPopMatrix();
-	//left
-	glPushMatrix();
-	glTranslatef(0, 0, 0);
-	glRotatef(-90, 0, 1, 0);
-	drawSquare();
-	glPopMatrix();
-	//top
-	glPushMatrix();
-	glTranslatef(0, 2.5, -2.5);
-	glRotatef(90, 1, 0, 0);
-	drawSquare();
-	glPopMatrix();
-	//bottom
-	glPushMatrix();
-	glTranslatef(0, -2.5, -2.5);
-	glRotatef(90, 1, 0, 0);
-	drawSquare();
-	glPopMatrix();
-}
-//void testDraw() {
-//	glPushMatrix();
-//	glTranslatef(10, 10, 10);
-//	glRotatef(0, 0, 0, 0);
-//	drawCube();
-//	glPopMatrix();
-//}
-
-//void drawRect1() {
-//	glColor3f(1, 0, 0);
-//	glBegin(GL_QUADS);
-//	glVertex3f(-5, 0, -2.5);
-//	glVertex3f(-5, 2, -2.5);
-//	glVertex3f(5, 2, -2.5);
-//	glVertex3f(5, 0, -2.5);
-//	glEnd();
-//}
-//void drawRect2() {
-//	glColor3f(0, 1, 0);
-//	glBegin(GL_QUADS);
-//	glVertex3f(-5, 0, -2.5);
-//	glVertex3f(-5, 2, -2.5);
-//	glVertex3f(-5, 2, 2.5);
-//	glVertex3f(-5, 0, 2.5);
-//	glEnd();
-//}
-//void drawRect3() {
-//	glColor3f(0, 0, 1);
-//	glBegin(GL_QUADS);
-//	glVertex3f(-5, 0, -2.5);
-//	glVertex3f(-5, 0, 2.5);
-//	glVertex3f(5, 0, 2.5);
-//	glVertex3f(5, 0, -2.5);
-//	glEnd();
-//}
-//void drawRectPrism() {
-//	//Front and back
-//	drawRect1();
-//	glPushMatrix();
-//	glTranslatef(0, 0, 5);
-//	drawRect1();
-//	glPopMatrix();
-//	//Right and left
-//	drawRect2();
-//	glPushMatrix();
-//	glTranslatef(10, 0, 0);
-//	drawRect2();
-//	glPopMatrix();
-//	//Bottom and top
-//	drawRect3();
-//	glPushMatrix();
-//	glTranslatef(0, 2, 0);
-//	drawRect3();
-//	glPopMatrix();
-//}
-
-void drawTri() {
-	//glColor3f(1, 0, 1);
-	glBegin(GL_POLYGON);
-	glVertex3f(5, 0, -5);
-	glVertex3f(-5, 0, -5);
-	float h = (8.0 * sin(60 * PI / 180));
-	float o = 8 * cos(60 * PI / 180);
-	glVertex3f(5-o, h, -5);
-	glEnd();
-}
-void drawTri1() {
-	glColor3f(1, 0, 0);
-	glBegin(GL_POLYGON);
-	glVertex3f(5, 0, -5);
-	glVertex3f(-5, 0, -5);
-	glVertex3f(-5, 0, 5);
-	glVertex3f(5, 0, 5);
-	glEnd();
-}
-void drawTri2() {
-	glColor3f(0, 1, 0);
-	glBegin(GL_POLYGON);
-	float h = (8.0 * sin(60 * PI / 180));
-	float o = 8 * cos(60 * PI / 180);
-	glVertex3f(5, 0, -5);
-	glVertex3f(5 - o, h, -5);
-	glVertex3f(5 - o, h, 5);
-	glVertex3f(5, 0, 5);
-	glEnd();
-}
-void drawTri3() {
-	glColor3f(0, 0, 1);
-	glBegin(GL_POLYGON);
-	float h = (8.0 * sin(60 * PI / 180));
-	float o = 8 * cos(60 * PI / 180);
-	glVertex3f(-5, 0, -5);
-	glVertex3f(5 - o, h, -5);
-	glVertex3f(5 - o, h, 5);
-	glVertex3f(-5, 0, 5);
-	glEnd();
-}
-void drawTriPrism() {
-	glColor3f(1, 0, 1);
-	drawTri();
-	glPushMatrix();
-	glTranslatef(0, 0, 10);
-	glColor3f(1, 1, 0);
-	drawTri();
-	glPopMatrix();
-	drawTri1();
-	drawTri2();
-	drawTri3();
-}
-
-void drawTrap() {
-	glColor3f(1, 0, 0);
-	glBegin(GL_POLYGON);
-	glVertex3f(5, 0, -2.5);
-	glVertex3f(-5, 0, -2.5);
-	glVertex3f(-4, 5, -2.5);
-	glVertex3f(4, 5, -2.5);
-	glEnd();
-}
-void drawTrap1() {
-	glColor3f(0, 1, 0);
-	glBegin(GL_POLYGON);
-	glVertex3f(5, 0, -2.5);
-	glVertex3f(-5, 0, -2.5);
-	glVertex3f(-5, 0, 2.5);
-	glVertex3f(5, 0, 2.5);
-	glEnd();
-}
-void drawTrap2() {
-	glColor3f(0, 0, 1);
-	glBegin(GL_POLYGON);
-	glVertex3f(4, 5, 2.5);
-	glVertex3f(-4, 5, 2.5);
-	glVertex3f(-4, 5, -2.5);
-	glVertex3f(4, 5, -2.5);
-	glEnd();
-}
-void drawTrap3() {
-	glColor3f(1, 1, 0);
-	glBegin(GL_POLYGON);
-	glVertex3f(-5, 0, 2.5);
-	glVertex3f(-5, 0, -2.5);
-	glVertex3f(-4, 5, -2.5);
-	glVertex3f(-4, 5, 2.5);
-	glEnd();
-}
-void drawTrap4() {
-	glColor3f(0, 1, 1);
-	glBegin(GL_POLYGON);
-	glVertex3f(5, 0, 2.5);
-	glVertex3f(5, 0, -2.5);
-	glVertex3f(4, 5, -2.5);
-	glVertex3f(4, 5, 2.5);
-	glEnd();
-}
-void drawTrapPrism() {
-	drawTrap();
-	glPushMatrix();
-	glTranslatef(0, 0, 5);
-	//glColor3f(1, 1, 0);
-	drawTrap();
-	glPopMatrix();
-	drawTrap1();
-	drawTrap2();
-	drawTrap3();
-	drawTrap4();
-}
-
-void testDraw() {
-	glPushMatrix();
-	glTranslatef(10, 10, 10);
-	glRotatef(0, 0, 0, 0);
-	//drawRectPrism();
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(-10, 10, 10);
-	glRotatef(0, 0, 0, 0);
-	drawTriPrism();
-	glPopMatrix();
-	drawTrapPrism();
-}
 
 void display() {
 	frameCounter++;
@@ -462,29 +203,6 @@ void display() {
 
 	// draw HUD
 	HUD::Draw();
-
-    /*
-	//testing drawing shapes
-	RectPrism * testRectPrism = new RectPrism(20, 0, 20, 10, 10, 20);
-	testRectPrism->setColor(0, 1, 0);
-	testRectPrism->draw();
-
-	TriPrism * testTriPrism = new TriPrism(-20, 0, 20, 10, 10, 90, 15);
-	testTriPrism->setColor(1, 0, 0);
-	testTriPrism->draw();
-
-	TrapPrism * testTrapPrism = new TrapPrism(-20, 0, -20, 10, 10, 10, 10, 5);
-	testTrapPrism->setColor(0, 0, 1);
-	testTrapPrism->draw();
-
-	Cylinder * testCylinder = new Cylinder(20, 0, -20, 5, 10);
-	testCylinder->setColor(1, 1, 0);
-	testCylinder->draw();
-
-	MyVehicle * testVehicle = new MyVehicle();
-	testVehicle->draw();
-	//testDraw();
-    */
 
 	glutSwapBuffers();
 };
@@ -596,27 +314,6 @@ void idle() {
 					VehicleModel vm;
 					vm.remoteID = 0;
 
-					// student code goes here
-				   /*MyVehicle* new_vehicle = new MyVehicle();
-					Shape* body = new RectPrism(0.0, 0.0, 0.0, 3.0, 2.0, 2.0);
-					body->setColor(0, 1, 1);
-					new_vehicle->addShape(body);
-
-					TriPrism * driver = new TriPrism(0.75, 2.0, 0.0, 0.5, 0.5, 45, 1.0);
-					driver->setColor(1, 0, 0);
-					driver->draw();
-					new_vehicle->addShape(driver);
-
-					TrapPrism * passenger = new TrapPrism(-0.75, 2.0, 0.0, 1.5, 1.0, 1.0, 2.0, 0.25);
-					passenger->setColor(0, 0, 1);
-					passenger->draw();
-					new_vehicle->addShape(passenger);
-
-					Cylinder * testCylinder = new Cylinder(1.5, 0.5, 0.0, 90, 0.5, 1.0);
-					testCylinder->setColor(1, 1, 0);
-					testCylinder->draw();
-					new_vehicle->addShape(testCylinder);*/
-					
 					vm.shapes = vehicle->getVehicleServerModelVector();
 
 					RemoteDataManager::Write(GetVehicleModelStr(vm));
