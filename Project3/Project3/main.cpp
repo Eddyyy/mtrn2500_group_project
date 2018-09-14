@@ -1,4 +1,3 @@
-//testing
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
