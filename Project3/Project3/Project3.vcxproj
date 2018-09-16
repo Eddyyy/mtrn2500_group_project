@@ -89,12 +89,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\include;C:\Users\Student\source\repos\Project3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\mraki\source\repos\mtrn2500_group_project\Project3\include;G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\include;C:\Users\Student\source\repos\Project3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\lib;C:\Users\Student\source\repos\Project3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\mraki\source\repos\mtrn2500_group_project\Project3\lib;G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\lib;C:\Users\Student\source\repos\Project3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glu32.lib;glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
