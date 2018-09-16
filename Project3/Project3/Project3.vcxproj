@@ -89,13 +89,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\include;C:\Users\Student\source\repos\Project3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\include;C:\Users\Student\source\repos\Project3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\lib;C:\Users\Student\source\repos\Project3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glu32.lib;glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib;G:\Users\Edward_PC\OneDrive - UNSW\uni files\2018\S2\mtrn2500\mtrn2500_group_project\Project3\lib;C:\Users\Student\source\repos\Project3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glu32.lib;glut32.lib;opengl32.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -161,10 +161,13 @@
     <ClCompile Include="RemoteDataManager.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="MyVehicle.cpp" />
+    <ClCompile Include="Tractor.cpp" />
     <ClCompile Include="TrapPrism.cpp" />
     <ClCompile Include="TriPrism.cpp" />
     <ClCompile Include="VectorMaths.cpp" />
     <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="Wheel.cpp" />
+    <ClCompile Include="XBoxController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.hpp" />
@@ -181,10 +184,14 @@
     <ClInclude Include="RectPrism.hpp" />
     <ClInclude Include="RemoteDataManager.hpp" />
     <ClInclude Include="Shape.hpp" />
+    <ClInclude Include="Tractor.hpp" />
     <ClInclude Include="TrapPrism.hpp" />
     <ClInclude Include="TriPrism.hpp" />
     <ClInclude Include="VectorMaths.hpp" />
     <ClInclude Include="Vehicle.hpp" />
+    <ClInclude Include="Wheel.hpp" />
+    <ClInclude Include="XBoxController.hpp" />
+    <ClInclude Include="XInputWrapper.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
