@@ -130,4 +130,3 @@ float * VectorMaths::spherical2dir(float * sph) {
 };
 
 
-

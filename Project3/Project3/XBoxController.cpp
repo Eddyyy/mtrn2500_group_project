@@ -156,4 +156,3 @@ void GamePad::XBoxController::update_gamepad() {
 	this->xinput->XInputGetState(this->id, &this->pState);
 }
 
-
