@@ -29,7 +29,6 @@
 #include "Camera.hpp"
 #include "Ground.hpp"
 #include "KeyManager.hpp"
-#include "XBoxController.hpp"
 
 #include "Shape.hpp"
 #include "Vehicle.hpp"
@@ -73,8 +72,6 @@ int prev_mouse_y = -1;
 Vehicle * vehicle = NULL;
 double speed = 0;
 double steering = 0;
-XInputWrapper xinput;
-GamePad::XBoxController* controller = new GamePad::XBoxController(&xinput, 0);
 
 // default goal location
 std::deque<GoalState> goals;
@@ -281,28 +278,16 @@ void idle() {
 	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
 		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
 	}
-	else if (controller->IsConnected() && controller->PressedLeftDpad()) {
-		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1; ;
-	}
 
 	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
-		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
-	}
-	else if (controller->IsConnected() && controller->PressedRightDpad()) {
 		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
 	}
 
 	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
 		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
 	}
-	else if (controller->IsConnected() && controller->PressedA()) {
-		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
-	}
 
 	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
-		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
-	}
-	else if (controller->IsConnected() && controller->PressedB()) {
 		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
 	}
 
