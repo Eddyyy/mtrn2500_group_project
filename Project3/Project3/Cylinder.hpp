@@ -5,7 +5,6 @@
 #include "Messages.hpp"
 
 class Cylinder : public Shape {
-
 protected:
 	float radius;
 	float depth;

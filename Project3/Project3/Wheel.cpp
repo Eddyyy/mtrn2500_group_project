@@ -56,31 +56,34 @@ void Wheel::draw() {
 	GLUquadric * quadric = gluNewQuadric();
 	gluQuadricDrawStyle(quadric, GLU_FILL);
 	gluQuadricNormals(quadric, GLU_SMOOTH);
-    gluCylinder(quadric, radius, radius, depth, 5, 10);
+    gluCylinder(quadric, radius, radius, depth, 50, 10);
 	gluDeleteQuadric(quadric);
     glPopMatrix();
 
 	//Wheel face
 	glPushMatrix();
 	glTranslatef(0, radius, -depth/2);
-	quadric = gluNewQuadric();
-	gluQuadricDrawStyle(quadric, GLU_FILL);
-	gluQuadricNormals(quadric, GLU_SMOOTH);
-	gluDisk(quadric, 0, radius, 5, 10);
-	gluDeleteQuadric(quadric);
+    draw_disk();
 	glPopMatrix();
 
 	// Wheel face
 	glPushMatrix();
 	glTranslatef(0, radius, depth/2);
-	quadric = gluNewQuadric();
-	gluQuadricDrawStyle(quadric, GLU_FILL);
-	gluQuadricNormals(quadric, GLU_SMOOTH);
-	gluDisk(quadric, 0, radius, 5, 10);
-	gluDeleteQuadric(quadric);
+    draw_disk();
 	glPopMatrix();
 
     glPopMatrix();
+}
+
+void Wheel::draw_disk(){
+	GLUquadric * quadric = gluNewQuadric();
+	gluQuadricDrawStyle(quadric, GLU_FILL);
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+    gluPartialDisk(quadric, 0, radius, 50, 10, 0, 180);
+	glColor3f(0, 1, 0);
+    gluPartialDisk(quadric, 0, radius, 50, 10, 180, 360);
+	glColor3f(red, green, blue);
+	gluDeleteQuadric(quadric);
 }
 
 void Wheel::setRotationAngle(double rotAngle) {

@@ -102,17 +102,11 @@ void MyVehicle::draw() {
 void MyVehicle::update(double dt) {
     Vehicle::update(dt);
 	wheelAngle += 2*PI*(dt * speed);
-
-	while (wheelAngle > 1000) wheelAngle -= 1000;
-	while (wheelAngle < -1000) wheelAngle += 1000;
 }
 
 void MyVehicle::update(double speed_, double steering_, double dt) {
     Vehicle::update(speed_, steering_, dt);
 	wheelAngle += 2*PI*(dt * speed);
-
-	while (wheelAngle > 1000) wheelAngle -= 1000;
-	while (wheelAngle < -1000) wheelAngle += 1000;
 }
 
 std::vector<ShapeInit> MyVehicle::getVehicleServerModelVector() {

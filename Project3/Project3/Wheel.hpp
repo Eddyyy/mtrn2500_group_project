@@ -25,6 +25,8 @@ private:
     double rotationAngle;
     double steeringAngle;
     bool isSteering;
+
+    void draw_disk();
 };
 
 #endif WHEEL_H
